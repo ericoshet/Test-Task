@@ -51,7 +51,7 @@ const UserListApp = (() => {
               type="url"
               id="photo-url-${user.id}"
               class="user-card__photo-url"
-              placeholder="https://example.com/photo.jpg"
+              placeholder="или URL"
               value="${user.photoUrl || ''}"
             />
             <button type="button" class="user-card__apply-url" data-user-id="${user.id}">Применить URL</button>
