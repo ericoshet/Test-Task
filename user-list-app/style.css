@@ -21,10 +21,11 @@ body {
   background-color: #f5f5f5;
   padding: var(--gap-md);
   line-height: 1.5;
+  touch-action: manipulation; /* Убирает 300ms задержку на таче */
 }
 
 .container {
-  max-width: 800px; 
+  max-width: 800px;
   margin: 0 auto;
   background: white;
   padding: var(--container-padding);
@@ -63,13 +64,12 @@ body {
 }
 
 .controls__input {
-  padding: 6px 10px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: var(--border-radius);
   font-size: var(--font-size-base);
   width: 100px;
   min-height: 44px;
-  padding: 10px;
 }
 
 .controls__btn {
@@ -176,10 +176,9 @@ body {
   min-height: 40px;
 }
 
-.user-card__photo-controls button {
+.user-card__apply-url,
+.user-card__remove-photo {
   padding: 8px 12px;
-  background: #2196F3;
-  color: white;
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -188,9 +187,25 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.user-card__photo-controls button:hover,
-.user-card__photo-controls button:focus {
+.user-card__apply-url {
+  background: #2196F3;
+  color: white;
+}
+
+.user-card__apply-url:hover,
+.user-card__apply-url:focus {
   background: #1976D2;
+}
+
+.user-card__remove-photo {
+  background: #f44336;
+  color: white;
+}
+
+.user-card__remove-photo:hover,
+.user-card__remove-photo:focus {
+  background: #d32f2f;
+  outline: 2px solid #b71c1c;
 }
 
 /* === Adaptive === */
@@ -217,7 +232,8 @@ body {
   .controls__btn,
   .user-card__photo-controls input[type="url"],
   .user-card__photo-controls label,
-  .user-card__photo-controls button {
+  .user-card__apply-url,
+  .user-card__remove-photo {
     width: 100%;
     min-width: auto;
   }
