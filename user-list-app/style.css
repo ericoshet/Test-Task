@@ -1,0 +1,224 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gap-xs: clamp(6px, 1.8vw, 10px);
+  --gap-sm: clamp(10px, 2.5vw, 14px);
+  --gap-md: clamp(14px, 3.2vw, 20px);
+  --border-radius: 6px;
+  --font-size-small: clamp(13px, 2.6vw, 14px);
+  --font-size-base: clamp(15px, 2.8vw, 16px);
+  --font-size-lg: clamp(18px, 3.4vw, 20px);
+  --container-padding: clamp(16px, 4vw, 24px);
+  --avatar-size: clamp(60px, 16vw, 80px);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f5f5f5;
+  padding: var(--gap-md);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 800px; 
+  margin: 0 auto;
+  background: white;
+  padding: var(--container-padding);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: var(--gap-md);
+  color: #333;
+  font-size: clamp(22px, 4.5vw, 28px);
+  font-weight: 600;
+}
+
+/* === Controls === */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap-md);
+  margin-bottom: var(--gap-md);
+  flex-wrap: wrap;
+}
+
+.controls__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+  min-width: 140px;
+}
+
+.controls__label {
+  font-weight: 600;
+  color: #444;
+  font-size: var(--font-size-small);
+}
+
+.controls__input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  width: 100px;
+  min-height: 44px;
+  padding: 10px;
+}
+
+.controls__btn {
+  padding: 8px 14px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  min-height: 44px;
+  min-width: 80px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.controls__btn:hover,
+.controls__btn:focus {
+  background: #45a449;
+  outline: 2px solid #3d8b40;
+}
+
+/* === User List === */
+.user-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+}
+
+.user-card {
+  display: flex;
+  gap: var(--gap-sm);
+  padding: var(--gap-sm);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  background: #fafafa;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.user-card__avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: clamp(28px, 7vw, 40px);
+  flex-shrink: 0;
+}
+
+.user-card__info h2 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--gap-xs);
+  color: #333;
+}
+
+.user-card__info p {
+  margin: 2px 0;
+  color: #555;
+  font-size: var(--font-size-small);
+}
+
+/* === Photo Controls === */
+.user-card__photo-controls {
+  margin-top: var(--gap-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xs);
+  align-items: center;
+  width: 100%;
+}
+
+.user-card__photo-controls input[type="file"] {
+  display: none;
+}
+
+.user-card__photo-controls label {
+  padding: 8px 12px;
+  background: #2196F3;
+  color: white;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  min-height: 40px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.user-card__photo-controls label:hover,
+.user-card__photo-controls label:focus {
+  background: #1976D2;
+}
+
+.user-card__photo-controls input[type="url"] {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-small);
+  flex: 1;
+  min-width: 140px;
+  min-height: 40px;
+}
+
+.user-card__photo-controls button {
+  padding: 8px 12px;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  min-height: 40px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.user-card__photo-controls button:hover,
+.user-card__photo-controls button:focus {
+  background: #1976D2;
+}
+
+/* === Adaptive === */
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controls__group {
+    min-width: auto;
+  }
+
+  .user-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-card__avatar {
+    align-self: center;
+  }
+
+  .controls__input,
+  .controls__btn,
+  .user-card__photo-controls input[type="url"],
+  .user-card__photo-controls label,
+  .user-card__photo-controls button {
+    width: 100%;
+    min-width: auto;
+  }
+}
